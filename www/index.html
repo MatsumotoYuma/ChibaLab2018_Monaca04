@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    ons.ready(function() {
+      console.log("Onsen UI is ready!");
+    });
+
+    document.addEventListener('show', function(event) {
+      var page = event.target;
+      var titleElement = document.querySelector('#toolbar-title');
+
+      if (page.matches('#home-page')) {
+        titleElement.innerHTML = 'アプリ名';
+      } else if (page.matches('#chat-page')) {
+        titleElement.innerHTML = 'チャット';
+      } else if (page.matches('#work-page')) {
+        titleElement.innerHTML = '作業記録';
+      }else if (page.matches('#diary-page')) {
+        titleElement.innerHTML = '日記';
+      }else if (page.matches('#other-page')) {
+        titleElement.innerHTML = 'その他';
+      }
+    });
+  </script>
+  
+</head>
+
+<body>
+
+<!-- ツールバー -->
+  <ons-page>
+    <ons-toolbar>
+      <div class="center" id="toolbar-title"></div>
+    </ons-toolbar>
+    <ons-tabbar position="auto">
+      <ons-tab label="ホーム" page="home.html" active>
+      </ons-tab>
+      <ons-tab label="チャット" page="chat.html">
+      </ons-tab>
+      <ons-tab label="農作業" page="work.html">
+      </ons-tab>
+      <ons-tab label="日記" page="diary.html">
+      </ons-tab>
+      <ons-tab label="その他" page="other.html">
+      </ons-tab>
+    </ons-tabbar>
+  </ons-page>
+
+<!-- ホームページ -->
+  <ons-template id="home.html">
+    <ons-page id="home-page">
+      <img src="img/htk.jpg" style="height:40%;width:100%" />
+      
+    </ons-page>
+  </ons-template>
+
+<!-- チャットページ -->
+  <ons-template id="chat.html">
+    <ons-page id="chat-page">
+        <ons-list>
+            <ons-list-header>友達</ons-list-header>
+                <ons-list-item>友達1</ons-list-item>
+                <ons-list-item>友達2</ons-list-item>
+                <ons-list-item>友達3</ons-list-item>
+        </ons-list>
+        <ons-list>
+            <ons-list-header>グループ</ons-list-header>
+                <ons-list-item>グループ1</ons-list-item>
+                <ons-list-item>グループ2</ons-list-item>
+                <ons-list-item>グループ3</ons-list-item>
+        </ons-list>
+    </ons-page>
+  </ons-template>
+  
+<!-- 農作業ページ -->  
+  <ons-template id="work.html">
+    <ons-page id="work-page">
+    </ons-page>
+  </ons-template>
+  
+<!-- 日記ページ -->    
+  <ons-template id="diary.html">
+    <ons-page id="diary-page">
+    </ons-page>
+  </ons-template>
+  
+<!-- その他ページ -->  
+  <ons-template id="other.html">
+    <ons-page id="other-page">
+    </ons-page>
+  </ons-template>
+  
+</body>
+</html>
